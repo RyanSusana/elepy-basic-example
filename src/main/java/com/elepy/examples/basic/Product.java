@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 
 @RestModel(name = "Products", slug = "/products")//The only necessary annotation for Elepy
-//@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) //You must have this annotated if you use generated fields.
 public class Product {
 
     @Identifier // All elepy models must have atleast 1 identifying field. By default it can be a 'String productId;'
