@@ -12,19 +12,24 @@
         <dependency>
             <groupId>com.elepy</groupId>
             <artifactId>elepy-core</artifactId>
-            <version>1.6</version>
+            <version>1.6.1</version>
         </dependency>
         <dependency>
             <groupId>com.elepy</groupId>
             <artifactId>elepy-admin</artifactId>
-            <version>1.6</version>
+            <version>1.6.1</version>
         </dependency>
-
         <dependency>
             <groupId>com.github.fakemongo</groupId>
             <artifactId>fongo</artifactId>
             <version>2.2.0-RC2</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+
     </dependencies>
     
 </project>
