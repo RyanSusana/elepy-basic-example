@@ -18,8 +18,11 @@ public class Main {
         DB exampleDB = fongo.getDB("example1");
 
         new Elepy()
-                //Attach a singleton to Elepy. To use Mongo with elepy, you need to attach a DB
+                //Attach a singleton to Elepy. To use Mongo with Elepy, you need to attach a DB
                 .attachSingleton(DB.class, exampleDB)
+
+                //Run locally
+                .ipAddress("localhost")
 
                 //The port Elepy will run on.
                 .onPort(7777)

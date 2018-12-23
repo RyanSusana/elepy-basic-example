@@ -2,6 +2,7 @@ package com.elepy.examples.basic;
 
 import com.elepy.annotations.Number;
 import com.elepy.annotations.*;
+import com.elepy.models.AccessLevel;
 import com.elepy.models.TextType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 
 @RestModel(name = "Products", slug = "/products")//The only necessary annotation for Elepy
 @JsonIgnoreProperties(ignoreUnknown = true) //You must have this annotated if you use generated fields.
+@Update(handler = ProductUpdate.class, accessLevel = AccessLevel.ADMIN) //Override Elepy's default create :D
 public class Product {
 
     @Identifier // All elepy models must have atleast 1 identifying field. By default it can be a 'String productId;'
