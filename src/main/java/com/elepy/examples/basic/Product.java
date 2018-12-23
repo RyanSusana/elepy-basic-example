@@ -21,10 +21,14 @@ public class Product {
 
     @PrettyName("Short Description")
     @Text(value = TextType.TEXTAREA, maximumLength = 100) //Textarea with a maximum of 100 characters
+
+    //How elepy orders fields. By default all fields have a default of 0. negative fields don't get shown in the main admin table
+    @Importance(-5)
     private String shortDescription;
 
     @PrettyName("Long Description")
     @Text(TextType.HTML)//WYSIWYG editor
+    @Importance(-10)
     private String htmlDescription;
 
     @PrettyName("Product Name")
@@ -48,7 +52,7 @@ public class Product {
     @Generated
     @JsonProperty("revenue")
     //Automatically generate the revenue of a product and display it in Elepy
-    public BigDecimal getRevenue(){
+    public BigDecimal getRevenue() {
         return price.multiply(BigDecimal.valueOf(amountSold));
     }
 
