@@ -35,5 +35,9 @@ public class Main {
 
                 //Start Elepy!
                 .start();
+
+        // browse to http://localhost:7777/admin
+        // username: admin
+        // password: admin
     }
 }
