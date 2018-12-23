@@ -52,7 +52,7 @@ public class Product {
         return price.multiply(BigDecimal.valueOf(amountSold));
     }
 
-    //Getters and Setters. I like to use Lombok to automate this.
+    //Getters and Setters. I like to use Lombok to automate this :D
 
     public String getProductId() {
         return productId;
