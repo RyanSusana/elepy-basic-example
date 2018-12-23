@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Logger.getRootLogger().setLevel(Level.INFO);
         org.apache.log4j.BasicConfigurator.configure();
+
         //Embedded MongoDB instance
         Fongo fongo = new Fongo("examples");
         DB exampleDB = fongo.getDB("example1");
