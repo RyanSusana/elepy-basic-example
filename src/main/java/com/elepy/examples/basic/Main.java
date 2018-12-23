@@ -21,7 +21,7 @@ public class Main {
                 //Attach a singleton to Elepy. To use Mongo with Elepy, you need to attach a DB
                 .attachSingleton(DB.class, exampleDB)
 
-                //Run locally
+                //Run locally(this is also the default)
                 .ipAddress("localhost")
 
                 //The port Elepy will run on.
@@ -30,7 +30,7 @@ public class Main {
                 //Add your first Elepy Annotated Model. You can alternatively add an entire package of models.
                 .addModel(Product.class)
 
-                //Add an Elepy extension. The AdminPanel is a great start :D
+                //Add an Elepy extension. The AdminPanel/CMS is a great start :D
                 .addExtension(new ElepyAdminPanel())
 
                 //Start Elepy!
