@@ -22,7 +22,7 @@ public class Main {
                 .attachSingleton(DB.class, exampleDB)
 
                 //Run locally(this is also the default)
-                .ipAddress("localhost")
+                .withIPAdress("localhost")
 
                 //The port Elepy will run on.
                 .onPort(7777)
