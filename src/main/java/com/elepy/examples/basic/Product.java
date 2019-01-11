@@ -53,7 +53,9 @@ public class Product {
 
     @Generated
     @JsonProperty("revenue")
+    @PrettyName("Revenue Generated")
     //Automatically generate the revenue of a product and display it in Elepy
+    //In real life this would be another field to reflect price changes properly
     public BigDecimal getRevenue() {
         return price.multiply(BigDecimal.valueOf(amountSold));
     }
