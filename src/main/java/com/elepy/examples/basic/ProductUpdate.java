@@ -32,7 +32,11 @@ public class ProductUpdate extends SimpleUpdate<Product> {
             after.setStockLeft(newStock);
 
             crud.update(after);
+
+            logger.info(String.format("Product has been updated. The stock has been increased by %d.", difference));
+        } else {
+            logger.info("Product has been updated.");
         }
-        logger.info("Product has been updated.");
+
     }
 }
