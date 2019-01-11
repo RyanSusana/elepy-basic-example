@@ -12,7 +12,7 @@
         <dependency>
             <groupId>com.elepy</groupId>
             <artifactId>elepy-core</artifactId>
-            <version>1.7.0</version>
+            <version>1.7.1</version>
         </dependency>
         <dependency>
             <groupId>com.elepy</groupId>
