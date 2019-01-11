@@ -25,7 +25,11 @@ public class ProductUpdate extends SimpleUpdate<Product> {
             final int difference = after.getAmountSold() - before.getAmountSold();
             final int currentStock = after.getStockLeft();
 
-            after.setStockLeft(currentStock - difference);
+            int newStock = currentStock - difference;
+            if (newStock < 0) {
+                newStock = 0;
+            }
+            after.setStockLeft(newStock);
 
             crud.update(after);
         }
