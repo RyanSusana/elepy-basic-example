@@ -2,96 +2,45 @@ package com.elepy.examples.basic;
 
 import com.elepy.annotations.Number;
 import com.elepy.annotations.*;
-import com.elepy.models.AccessLevel;
 import com.elepy.models.TextType;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
-
-@RestModel(name = "Products", slug = "/products")//The only necessary annotation for Elepy
-@JsonIgnoreProperties(ignoreUnknown = true) //You must have this annotated if you use generated fields.
-@Update(handler = ProductUpdate.class, accessLevel = AccessLevel.ADMIN) //Override Elepy's default create :D
+@RestModel(slug = "/products", name = "Products")
 public class Product {
 
-    @Identifier // All elepy models must have atleast 1 identifying field. By default it can be a 'String productId;'
-    @PrettyName("Product ID") // A nice name to be used in Elepy error messages and such
-    @JsonProperty("productId")
-    private String productId;
+    @Identifier
+    private String id;
 
-
-    @PrettyName("Short Description")
-    @Text(value = TextType.TEXTAREA, maximumLength = 100) //Textarea with a maximum of 100 characters
-
-    //How elepy orders fields. By default all fields have a default of 0. negative fields don't get shown in the main admin table
-    @Importance(-5)
-    private String shortDescription;
-
-    @PrettyName("Long Description")
-    @Text(TextType.HTML)//WYSIWYG editor
-    @Importance(-10)
-    private String htmlDescription;
-
-    @PrettyName("Product Name")
-    @Required // All products must have a name
-    @Uneditable // You can't edit the product's name after it has been set
-    @Unique // Product  names must be unique
-    private String name;
-
-    @PrettyName("Product Price")
     @Number(minimum = 0)
     private BigDecimal price;
 
-    @PrettyName("Amount of stock left")
-    @Number(minimum = 0)
-    private int stockLeft;
+    @Unique
+    @Searchable
+    @PrettyName("Product Name")
+    private String name;
 
-    @PrettyName("Amount sold")
-    @Number(minimum = 0)
-    private int amountSold;
+    @DateTime(maximumDate = "2050-01-01")
+    private Date expirationDate;
 
-    @Generated
-    @JsonProperty("revenue")
-    @PrettyName("Revenue Generated")
-    //Automatically generate the revenue of a product and display it in Elepy
-    //In real life this would be another field to reflect price changes properly
-    public BigDecimal getRevenue() {
-        return price.multiply(BigDecimal.valueOf(amountSold));
+    @Text(TextType.TEXTAREA)
+    private String shortDescription;
+
+    @Text(TextType.HTML)
+    @PrettyName("This is a detailed description of the Product")
+    private String longDescription;
+
+
+    // Getters and setters. I like to use Project Lombok to automate this :D
+
+
+    public String getId() {
+        return id;
     }
 
-    //Getters and Setters. I like to use Lombok to automate this :D
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public String getShortDescription() {
-        return shortDescription;
-    }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
-    public String getHtmlDescription() {
-        return htmlDescription;
-    }
-
-    public void setHtmlDescription(String htmlDescription) {
-        this.htmlDescription = htmlDescription;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public BigDecimal getPrice() {
@@ -102,19 +51,35 @@ public class Product {
         this.price = price;
     }
 
-    public int getStockLeft() {
-        return stockLeft;
+    public String getName() {
+        return name;
     }
 
-    public void setStockLeft(int stockLeft) {
-        this.stockLeft = stockLeft;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getAmountSold() {
-        return amountSold;
+    public Date getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setAmountSold(int amountSold) {
-        this.amountSold = amountSold;
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
     }
 }

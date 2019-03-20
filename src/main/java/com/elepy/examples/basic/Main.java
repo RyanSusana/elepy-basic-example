@@ -4,14 +4,10 @@ import com.elepy.Elepy;
 import com.elepy.admin.ElepyAdminPanel;
 import com.github.fakemongo.Fongo;
 import com.mongodb.DB;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 
 public class Main {
     public static void main(String[] args) {
-        Logger.getRootLogger().setLevel(Level.INFO);
-        org.apache.log4j.BasicConfigurator.configure();
 
         //Embedded MongoDB instance
         Fongo fongo = new Fongo("examples");
@@ -19,7 +15,7 @@ public class Main {
 
         new Elepy()
                 //Attach a singleton to Elepy. To use Mongo with Elepy, you need to attach a DB
-                .attachSingleton(DB.class, exampleDB)
+                .registerDependency(DB.class, exampleDB)
 
                 //Run locally(this is also the default)
                 .withIPAdress("localhost")
@@ -37,7 +33,5 @@ public class Main {
                 .start();
 
         // browse to http://localhost:7777/admin
-        // username: admin
-        // password: admin
     }
 }
