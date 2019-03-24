@@ -2,6 +2,7 @@ package com.elepy.examples.basic;
 
 import com.elepy.Elepy;
 import com.elepy.admin.ElepyAdminPanel;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.github.fakemongo.Fongo;
 import com.mongodb.DB;
 
