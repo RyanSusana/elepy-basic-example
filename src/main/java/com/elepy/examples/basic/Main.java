@@ -19,7 +19,7 @@ public class Main {
                 // Add your model
                 .addModel(Product.class)
 
-                // Begin your journey! :D
+                // Begin your journey at http://localhost:8080/admin :D!
                 .start();
 
     }
