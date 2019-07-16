@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @RestModel(slug = "/products", name = "Products")
+@Update(handler = ProductUpdate.class)
 public class Product {
 
     @Identifier

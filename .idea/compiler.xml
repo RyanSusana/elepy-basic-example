@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="elepy-basic-example" target="1.5" />
+      <module name="elepy-basic-example" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
