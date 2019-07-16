@@ -23,33 +23,34 @@
         </plugins>
     </build>
     <dependencies>
+        <!-- The basic needs ;) -->
+        <dependency>
+            <groupId>com.elepy</groupId>
+            <artifactId>elepy-basic</artifactId>
+            <version>2.0.0-beta-15</version>
+        </dependency>
+
+        <!--For this example we use Mongo, the most popular NoSQL solution-->
+        <dependency>
+            <groupId>com.elepy</groupId>
+            <artifactId>elepy-mongo</artifactId>
+            <version>2.0.0-beta-15</version>
+        </dependency>
+
+        <!-- For the in memory Mongo database -->
         <dependency>
             <groupId>de.bwaldvogel</groupId>
             <artifactId>mongo-java-server</artifactId>
             <version>1.16.0</version>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.elepy</groupId>
-            <artifactId>elepy-basic</artifactId>
-            <version>2.0.0-beta-14-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.elepy</groupId>
-            <artifactId>elepy-mongo</artifactId>
-            <version>2.0.0-beta-14-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.fakemongo</groupId>
-            <artifactId>fongo</artifactId>
-            <version>2.2.0-RC2</version>
-        </dependency>
+
+        <!-- (Optional) for logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
         </dependency>
-
     </dependencies>
 
 </project>
